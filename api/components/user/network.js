@@ -12,13 +12,15 @@ router.post('/', upsert);
 router.put('/', secure('update'), upsert);  
 
 // Internal function
-async function list (req, res) {
+async function list (req, res, next) {
     let list;
     
     try {
         list = await controller.list();
     } catch (error) {
-        return response.error(req, res, error, 500)
+        // con esto se ejecutara el error que menejamos en el index
+        next()
+        // return response.error(req, res, error, 500)
     }   
     
     return response.success(req, res, list, 200)
