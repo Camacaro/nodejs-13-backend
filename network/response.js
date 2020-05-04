@@ -11,10 +11,12 @@ exports.success = function (req, res, message, status) {
     })
 }
 
-exports.error = function (req, res, message, status) {  
+exports.error = function (req, res, error, status, message = '') {  
     
+    console.log(error);
+
     let statusCode = status || 500;
-    let statusMessage = message || 'Internal server error';
+    let statusMessage = message === '' ? error.message || 'Internal server error' : message;    
 
     res.status(statusCode).send({
         error: false,

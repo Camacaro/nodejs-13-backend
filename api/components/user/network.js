@@ -17,7 +17,7 @@ async function list (req, res) {
     try {
         list = await controller.list();
     } catch (error) {
-        return response.error(req, res, error.message, 500)
+        return response.error(req, res, error, 500)
     }   
     
     return response.success(req, res, list, 200)
@@ -29,7 +29,7 @@ async function get (req, res) {
     try {
         user = await controller.get(req.params.id);
     } catch (error) {
-        return response.error(req, res, error.message, 500)
+        return response.error(req, res, error, 500)
     }   
     
     return response.success(req, res, user, 200)
@@ -41,7 +41,7 @@ async function upsert (req, res) {
     try {
         user = await controller.upsert(req.body);
     } catch (error) {
-        return response.error(req, res, error.message, 500)
+        return response.error(req, res, error, 500)
     }   
     
     return response.success(req, res, user, 201)
