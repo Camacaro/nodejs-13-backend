@@ -13,6 +13,11 @@ module.exports = function checkAuth(action) {
                 next();
                 break
 
+            case 'follow':
+                auth.check.logged(req)
+                next();
+                break
+
             default:
                 next();
         }

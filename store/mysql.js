@@ -95,10 +95,10 @@ async function upsert (table, data) {
 
     // revisar esto, lo tome de un comentario porqeu no seria esto
     // segun los mismo comentarios 
-    const resultado = await get(table, data.id)
-    
+    // const resultado = await get(table, data.id)
+    // resultado.length > 0
     //  data && data.id
-    if( resultado.length > 0) {
+    if( data && data.id ) {
         return update(table, data)
     } else {
         return insert(table, data)

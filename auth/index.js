@@ -16,14 +16,16 @@ const verify = (token) => {
 const check = {
     own: function (req, owner) {
         const decoded = decodeHeader(req)
-        console.log(decoded);
-
         // COMPROBAR SI ES O NO PROPIO
         console.log(decoded.id, owner);
         if( decoded.id !== owner){
             throw error('No puedes hacer esto', 401)
             // throw new Error('No puedes hacer esto')
         }
+    },
+
+    logged: function (req) {
+        const decoded = decodeHeader(req)
     },
 }
 

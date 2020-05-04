@@ -9,6 +9,7 @@ const router = express.Router();
 router.get('/', list);  
 router.get('/:id', get);  
 router.post('/', upsert);  
+router.post('/follow/:id', secure('follow'), follow)
 router.put('/', secure('update'), upsert);  
 
 // Internal function
@@ -48,6 +49,18 @@ async function upsert (req, res) {
     }   
     
     return response.success(req, res, user, 201)
+}
+
+function follow(req, res, next) {
+    
+    const usuario = req.user.id
+    const usuarioASeguir = req.params.id
+
+    controller.follow(usuario, usuarioASeguir)
+    .then( data => {
+        return response.success(req, res, data, 201)
+    })
+    .catch(next)
 }
 
 
