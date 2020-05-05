@@ -82,9 +82,17 @@ function update (table, data) {
     })
 }
 
-function query (tabla, query) {  
+function query (tabla, query, join) {  
+    
+    let joinQuery = ''
+    if(join) {
+        const key = Object.keys(join)[0]
+        const val = join[key]
+        joinQuery = `JOIN ${key} ON ${tabla}.${val} = ${key}.id`
+    }
+
     return new Promise( (resolve, reject) => {
-        connection.query(`SELECT * FROM ${tabla} WHERE ?`, query, (error, res) => {       
+        connection.query(`SELECT * FROM ${tabla} ${joinQuery} WHERE ?`, query, (error, res) => {       
             if(error) return reject(error)
             resolve(res[0] ? {...res[0]} : null)
         })
