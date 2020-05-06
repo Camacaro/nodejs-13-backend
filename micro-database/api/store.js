@@ -51,7 +51,7 @@ function list (table) {
 
 function get (table, id) {
     return new Promise ( (resolve, reject) => {
-        connection.query(`SELECT * FROM ${table} WHERE id = ${id}`, (error, data) => {
+        connection.query(`SELECT * FROM ${table} WHERE id = '${id}'`, (error, data) => {
             
             if(error) return reject(error)
 
@@ -99,14 +99,17 @@ function query (tabla, query, join) {
     })
 }
 
+// temgp que separar estas
 async function upsert (table, data) {
-
+    
     // revisar esto, lo tome de un comentario porqeu no seria esto
     // segun los mismo comentarios 
-    // const resultado = await get(table, data.id)
+    //console.log(table, data.id);
+    const resultado = await get('user', `123e`)
+    //console.log('resultado', resultado);
     // resultado.length > 0
     //  data && data.id
-    if( data && data.id ) {
+    if( resultado.length > 0 ) {
         return update(table, data)
     } else {
         return insert(table, data)

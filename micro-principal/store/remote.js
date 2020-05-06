@@ -7,13 +7,31 @@ function createRemoteDB(host, port) {
         return req('GET', table);
     }
 
-    // function get(table, id)
-    // function upsert(table, data)
-    // function query(table, query, join)
+    function get(table, id) {
+        return req('GET', `${table}/${id}`)
+    }
+
+    function upsert(table, data) {
+        return req('POST', table, data)
+    }
+
+    function query(table, query, join) {
+    
+        const format = {
+            query,
+            join
+        }
+
+        return req('POST', `query/${table}`, format)
+    } 
 
     function req(method, table, data) {
         let url = URL + '/' + table;
-        body = '';
+        body =  '';
+
+        if(data) {
+            body = JSON.stringify(data);
+        }
 
         return new Promise((resolve, reject) => {
             request({
@@ -37,6 +55,9 @@ function createRemoteDB(host, port) {
 
     return {
         list,
+        get,
+        upsert,
+        query
     }
 }
 
