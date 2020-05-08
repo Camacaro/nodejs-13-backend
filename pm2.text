@@ -1,0 +1,23 @@
+
+
+$ pm2 start FILE --name NAME
+
+$ pm2 start FILE --name NAME --watch
+
+$ pm2 stop NAME || ID
+
+$ pm2 stop NAME || ID --watch
+
+$ pm2 delete NAME || ID
+
+$ pm2 status
+
+$ pm2 logs
+
+$ pm3 logs NAME || ID
+
+
+ecosystem.file 
+los env se especifican en el archivo como env, env_production, y en el comando se ponen asi --env production o si quiero el "env" no mando nada 
+
+$ pm2 [start|restart|stop|delete] ecosystem.config.js --env
