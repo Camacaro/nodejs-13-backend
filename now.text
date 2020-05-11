@@ -1,0 +1,14 @@
+
+Esto funciona como serverless
+
+instalar now
+$ npm i -g now
+
+Crear un archivo now.json para configurar como queremos que se despliegue 
+
+now dev 
+para desplegar en local y revisar debug
+
+Tengo un problema con el proyecto y es que tengo que cambiar la URL del mricoservicio-db ya que esta 
+con localhost y el puerto pero al subirlo en now este tiene un dominio el cual tengo qeu setear, tengo que 
+buscar como encontar dinamicamente ese host, o subirlo en otro url. 

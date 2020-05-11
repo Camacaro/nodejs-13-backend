@@ -12,7 +12,7 @@ const app = express()
 app.use(bodyParser.json())
 
 // Rutas
-app.use('/', router)
+app.use('/api/database', router)
 
 // Manejar errores 
 app.use(errors);

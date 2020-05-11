@@ -1,0 +1,38 @@
+{
+    "version": 2,
+    "env": {
+        "REMOTE_DB": "true"
+    },
+    "builds": [
+        {
+            "src": "micro-principal/api/index.js",
+            "use": "@now/node"
+        },
+        {
+            "src": "micro-post/index.js",
+            "use": "@now/node"
+        },
+        {
+            "src": "micro-database/api/index.js",
+            "use": "@now/node"
+        }
+    ],
+    "routes":[
+        {
+            "src":"/api/auth(.*)",
+            "dest": "/micro-principal/api/index.js"
+        },
+        {
+            "src":"/api/user(.*)",
+            "dest": "/micro-principal/api/index.js"
+        },
+        {
+            "src":"/api/post(.*)",
+            "dest": "micro-post/index.js"
+        },
+        {
+            "src":"/api/database(.*)",
+            "dest": "micro-database/api/index.js"
+        }
+    ]
+}

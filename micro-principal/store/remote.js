@@ -1,7 +1,7 @@
 const request = require('request');
 
 function createRemoteDB(host, port) {
-    const URL = 'http://'+ host + ':' + port;
+    const URL = 'http://'+ host + ':' + port + '/api/database';
 
     function list(table) {
         return req('GET', table);

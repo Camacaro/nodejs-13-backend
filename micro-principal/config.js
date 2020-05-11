@@ -1,5 +1,6 @@
 
 module.exports = {
+    remoteDB: process.env.REMOTE_DB || true,
     api: {
         port: process.env.API_PORT || 3000,
     },
@@ -14,7 +15,7 @@ module.exports = {
     },
     mysqlService: {
         host: process.env.MYSQL_SRV_HOST || 'localhost',
-        port: process.env.MYSQL_SRV_PORT || 3001,
+        port: process.env.MYSQL_SRV_PORT || 3000,
     }
 }
 
