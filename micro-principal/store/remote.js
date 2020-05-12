@@ -1,7 +1,7 @@
 const request = require('request');
 
 function createRemoteDB(host, port) {
-    const URL = 'http://'+ host + ':' + port + '/api/database';
+    const URL = 'http://'+ host + ':' + port ;
 
     function list(table) {
         return req('GET', table);
@@ -46,7 +46,7 @@ function createRemoteDB(host, port) {
                     console.error('Error con la base de datos remota', err);
                     return reject(err.message);
                 }
-
+                console.log(body);
                 const resp = JSON.parse(body);
                 return resolve(resp.body);
             })

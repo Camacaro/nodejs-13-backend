@@ -1,0 +1,15 @@
+
+
+https://redislabs.com/
+email jesus.alejandr@
+pass Redislabs_147
+suscription name : jcamacaro
+database nae : redisproyect-microservice
+pass ivKjd54OlngILab6fTtxLecQ3ODZY8zA
+endpoint: redis-13093.c8.us-east-1-4.ec2.cloud.redislabs.com:13093
+
+
+Tengo un problema con los set y get en el micro de cache revisar eso
+
+micro-principal/components/user/controller
+micro-cache/api/store
